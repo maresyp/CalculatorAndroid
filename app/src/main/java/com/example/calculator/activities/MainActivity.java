@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -31,8 +32,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void ok(View view) {
-        viewModel.getContext().setValue(Context.SIMPLE_CALC);
-        setContentView(R.layout.activity_simple_calculator);
+    public void simple(View view) {
+        Intent intent = new Intent(MainActivity.this, SimpleCalculator.class);
+        startActivity(intent);
+    }
+
+    public void about(View view) {
+        Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    public void advanced(View view) {
+        Intent intent = new Intent(MainActivity.this, AdvancedCalculator.class);
+        startActivity(intent);
     }
 }
