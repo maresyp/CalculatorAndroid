@@ -16,20 +16,20 @@ import java.util.Locale;
 import java.util.function.Function;
 
 public class SimpleCalculator extends AppCompatActivity {
-    private TextView resultTextView;
-    private Button lastButtonClicked;
-    private Double CalculaitonResult;
-    private Double firstOperand;
-    private Double secondOperand;
-    private Function<Double, Double> currentOperation = Math::sin;
-    private final int MAX_LENGTH = 10;
+    protected TextView resultTextView;
+    protected Button lastButtonClicked;
+    protected Double CalculationResult;
+    protected Double firstOperand;
+    protected Double secondOperand;
+    protected Function<Double, Double> currentOperation = Math::sin;
+    protected final int MAX_LENGTH = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_calculator);
 
-        CalculaitonResult = 0.0D;
+        CalculationResult = 0.0D;
 
         resultTextView = findViewById(R.id.resultTextView);
 
@@ -45,7 +45,7 @@ public class SimpleCalculator extends AppCompatActivity {
         df.setMaximumFractionDigits(9);
         df.setMinimumFractionDigits(0);
 
-        String formatted = df.format(CalculaitonResult);
+        String formatted = df.format(CalculationResult);
         if (formatted.length() > this.MAX_LENGTH) {
             Toast toast = Toast.makeText(getApplicationContext(), "Result is too big", Toast.LENGTH_SHORT);
             toast.show();
@@ -123,7 +123,7 @@ public class SimpleCalculator extends AppCompatActivity {
         }
         this.secondOperand = 0.0D;
         resultTextView.setText("0");
-        CalculaitonResult = 0.0D;
+        CalculationResult = 0.0D;
     }
 
     public void signOnClick(View view) {
@@ -152,7 +152,7 @@ public class SimpleCalculator extends AppCompatActivity {
 
         current_on_display = current_on_display.replace(",", ".");
         double current_on_display_double = Double.parseDouble(current_on_display);
-        this.CalculaitonResult = current_on_display_double / 100.0D;
+        this.CalculationResult = current_on_display_double / 100.0D;
 
         this.updateResultTextView();
     }
@@ -191,9 +191,9 @@ public class SimpleCalculator extends AppCompatActivity {
         }
 
         this.lastButtonClicked = (Button) view;
-        this.CalculaitonResult = this.currentOperation.apply(this.firstOperand);
+        this.CalculationResult = this.currentOperation.apply(this.firstOperand);
 
-        this.firstOperand = this.CalculaitonResult;
+        this.firstOperand = this.CalculationResult;
         updateResultTextView();
     }
 
