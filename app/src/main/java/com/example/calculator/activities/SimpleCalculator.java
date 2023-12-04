@@ -22,7 +22,7 @@ public class SimpleCalculator extends AppCompatActivity {
     protected Double firstOperand;
     protected Double secondOperand;
     protected Function<Double, Double> currentOperation = Math::sin;
-    protected final int MAX_LENGTH = 10;
+    protected final int MAX_LENGTH = 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
