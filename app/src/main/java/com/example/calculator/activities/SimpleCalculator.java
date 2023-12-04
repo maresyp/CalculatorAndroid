@@ -106,11 +106,6 @@ public class SimpleCalculator extends AppCompatActivity {
         resultTextView.setText(String.format(Locale.getDefault(), "%s,", current_on_display));
     }
 
-    public void onOperationClick(View view) {
-        // Create shadow on button when clicked
-
-    }
-
     @SuppressLint("SetTextI18n")
     public void onAllClearClick(View view) {
         String state = ((Button) findViewById(R.id.allClear)).getText().toString();
@@ -164,7 +159,14 @@ public class SimpleCalculator extends AppCompatActivity {
     public void divisionOnClick(View view) {
         this.updateOpperand();
         this.lastButtonClicked = (Button) view;
-        this.currentOperation = (x) -> x / secondOperand;
+        this.currentOperation = (x) -> {
+            if (secondOperand == 0.0D) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Division by zero", Toast.LENGTH_SHORT);
+                toast.show();
+                return 0.0D;
+            }
+            return x / secondOperand;
+        };
     }
 
     public void timesOnClick(View view) {
