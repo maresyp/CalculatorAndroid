@@ -49,6 +49,12 @@ public class AdvancedCalculator extends SimpleCalculator {
         }
 
         double current = Double.parseDouble(current_on_display);
+        if (current <= 0) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Logarithm of negative number is not a real number", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
         CalculationResult = Math.log(current);
 
         this.updateResultTextView();
@@ -61,6 +67,12 @@ public class AdvancedCalculator extends SimpleCalculator {
         }
 
         double current = Double.parseDouble(current_on_display);
+        if (current <= 0) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Logarithm of negative number is not a real number", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
         CalculationResult = Math.log10(current);
 
         this.updateResultTextView();
@@ -73,6 +85,12 @@ public class AdvancedCalculator extends SimpleCalculator {
         }
 
         double current = Double.parseDouble(current_on_display);
+        if (current < 0) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Square root of negative number is not a real number", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
         CalculationResult = Math.sqrt(current);
 
         this.updateResultTextView();
