@@ -71,7 +71,8 @@
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="signOnClick"
                 android:textColor="@color/black"
-                android:text="+/-"/>
+                android:text="+/-"
+                android:id="@+id/sign"/>
 
             <Button
                 android:layout_width="0dp"
@@ -233,7 +234,7 @@
                 android:backgroundTint="@color/orange"
                 android:textColor="@color/white"
                 android:text="+"
-                android:onClick="numberButtonHandler"/>
+                android:onClick="plusOnClick"/>
 
         </LinearLayout>
 
