@@ -59,8 +59,9 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
                 android:textColor="@color/black"
-                android:onClick="clearOnClick"
-                android:text="AC"/>
+                android:onClick="onAllClearClick"
+                android:text="AC"
+                android:id="@+id/allClear"/>
 
             <Button
                 android:layout_width="0dp"
@@ -68,7 +69,7 @@
                 android:layout_weight="1"
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
-                android:onClick="bracketsOnClick"
+                android:onClick="signOnClick"
                 android:textColor="@color/black"
                 android:text="+/-"/>
 
@@ -79,8 +80,8 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
                 android:textColor="@color/black"
-                android:onClick="powerOfOnClick"
-                android:text="^"/>
+                android:onClick="percentOnClick"
+                android:text="%"/>
 
             <Button
                 android:layout_width="0dp"
