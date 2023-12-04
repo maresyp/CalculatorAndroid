@@ -62,7 +62,7 @@
                 android:layout_weight="1"
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
-                android:onClick="signOnClick"
+                android:onClick="xSquaredOnClick"
                 android:textColor="@color/black"
                 android:text="x^2"/>
 
@@ -73,7 +73,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
                 android:textColor="@color/black"
-                android:onClick="percentOnClick"
+                android:onClick="xToThePowerOfYOnClick"
                 android:text="x^y"/>
 
             <Button
@@ -83,7 +83,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/orange"
                 android:textColor="@color/white"
-                android:onClick="divisionOnClick"
+                android:onClick="signOnClick"
                 android:text="+/-"/>
 
         </LinearLayout>
@@ -100,7 +100,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
                 android:textColor="@color/black"
-                android:onClick="onAllClearClick"
+                android:onClick="lnOnClick"
                 android:text="ln"/>
 
             <Button
@@ -109,7 +109,7 @@
                 android:layout_weight="1"
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
-                android:onClick="signOnClick"
+                android:onClick="logOnClick"
                 android:textColor="@color/black"
                 android:text="log"/>
 
@@ -120,7 +120,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
                 android:textColor="@color/black"
-                android:onClick="percentOnClick"
+                android:onClick="sqrtOnClick"
                 android:text="sqrt"/>
 
             <Button
@@ -130,7 +130,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/orange"
                 android:textColor="@color/white"
-                android:onClick="divisionOnClick"
+                android:onClick="percentOnClick"
                 android:text="%"/>
 
         </LinearLayout>
@@ -147,7 +147,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
                 android:textColor="@color/black"
-                android:onClick="onAllClearClick"
+                android:onClick="sinOnClick"
                 android:text="sin"/>
 
             <Button
@@ -156,7 +156,7 @@
                 android:layout_weight="1"
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
-                android:onClick="signOnClick"
+                android:onClick="cosOnClick"
                 android:textColor="@color/black"
                 android:text="cos"/>
 
@@ -167,7 +167,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/lightGrey"
                 android:textColor="@color/black"
-                android:onClick="percentOnClick"
+                android:onClick="tanOnClick"
                 android:text="tan"/>
 
             <Button
