@@ -55,6 +55,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="onAllClearClick"
                 android:text="AC"
@@ -65,6 +67,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="xSquaredOnClick"
                 android:text="x^2"
@@ -75,6 +79,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="xToThePowerOfYOnClick"
                 android:text="x^y"
@@ -85,6 +91,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/orange"
                 android:onClick="signOnClick"
                 android:text="+/-"
@@ -102,6 +110,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="lnOnClick"
                 android:text="ln"
@@ -112,6 +122,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="logOnClick"
                 android:text="log"
@@ -122,6 +134,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="sqrtOnClick"
                 android:text="sqrt"
@@ -132,11 +146,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/orange"
                 android:onClick="percentOnClick"
                 android:text="%"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -149,6 +165,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="sinOnClick"
                 android:text="sin"
@@ -159,6 +177,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="cosOnClick"
                 android:text="cos"
@@ -169,6 +189,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="tanOnClick"
                 android:text="tan"
@@ -179,6 +201,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/orange"
                 android:onClick="divisionOnClick"
                 android:text="/"
@@ -196,6 +220,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
                 android:onClick="numberButtonHandler"
                 android:text="7"
@@ -206,6 +232,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
                 android:onClick="numberButtonHandler"
                 android:text="8"
@@ -216,6 +244,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
                 android:onClick="numberButtonHandler"
                 android:text="9"
@@ -226,11 +256,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/orange"
                 android:onClick="timesOnClick"
                 android:text="x"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -244,6 +276,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
                 android:onClick="numberButtonHandler"
                 android:text="4"
@@ -254,6 +288,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
                 android:onClick="numberButtonHandler"
                 android:text="5"
@@ -264,6 +300,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
                 android:onClick="numberButtonHandler"
                 android:text="6"
@@ -274,11 +312,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/orange"
                 android:onClick="minusOnClick"
                 android:text="-"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:textSize="45sp" />
 
         </LinearLayout>
 
@@ -291,6 +331,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
                 android:onClick="numberButtonHandler"
                 android:text="1"
@@ -301,6 +343,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
                 android:onClick="numberButtonHandler"
                 android:text="2"
@@ -311,6 +355,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
                 android:onClick="numberButtonHandler"
                 android:text="3"
@@ -321,11 +367,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:backgroundTint="@color/orange"
                 android:onClick="plusOnClick"
                 android:text="+"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:textSize="35sp" />
 
         </LinearLayout>
 
@@ -335,40 +383,44 @@
             android:layout_weight="1">
 
             <Button
-                android:layout_width="0dp"
+                android:layout_width="6dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
+                android:textColor="@color/white"
                 android:text="0"
-                android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:onClick="numberButtonHandler"/>
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="decimalOnClick"
-                android:text=","
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
-
+                android:text=","
+                android:onClick="decimalOnClick"/>
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:textSize="40sp"
                 android:backgroundTint="@color/orange"
-                android:onClick="equalsOnClick"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="="
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
-
+                android:text="="
+                android:onClick="equalsOnClick"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"/>
         </LinearLayout>
 
     </LinearLayout>
