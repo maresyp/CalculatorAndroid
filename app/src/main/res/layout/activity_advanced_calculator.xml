@@ -315,6 +315,7 @@
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
                 android:backgroundTint="@color/orange"
+                android:paddingTop="0dp"
                 android:onClick="minusOnClick"
                 android:text="-"
                 android:textColor="@color/white"

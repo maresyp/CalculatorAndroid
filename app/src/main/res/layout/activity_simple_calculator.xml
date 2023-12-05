@@ -86,6 +86,7 @@
                 android:textSize="35sp"
                 android:backgroundTint="@color/lightGrey"
                 android:textColor="@color/black"
+                android:paddingTop="0dp"
                 android:onClick="percentOnClick"
                 android:text="%"/>
 
@@ -210,6 +211,7 @@
                 android:backgroundTint="@color/orange"
                 android:textColor="@color/white"
                 android:onClick="minusOnClick"
+                android:paddingTop="0dp"
                 android:text="-"/>
 
         </LinearLayout>
