@@ -2,9 +2,6 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="SimpleCalculatorTest">
-        <State />
-      </entry>
       <entry key="Tests in 'com.example.calculator'">
         <State />
       </entry>
@@ -24,7 +21,16 @@
           <timeTargetWasSelectedWithDropDown value="2023-12-05T18:48:25.069256Z" />
         </State>
       </entry>
-      <entry key="testXSquaredOnClick()">
+      <entry key="testDivisionByZero()">
+        <State />
+      </entry>
+      <entry key="testDoubleDivisionCalculation()">
+        <State />
+      </entry>
+      <entry key="testPercentWithMinusOperation()">
+        <State />
+      </entry>
+      <entry key="testSignWithDoubleOngoingCalculation()">
         <State />
       </entry>
     </value>

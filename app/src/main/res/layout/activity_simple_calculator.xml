@@ -88,6 +88,7 @@
                 android:textColor="@color/black"
                 android:paddingTop="0dp"
                 android:onClick="percentOnClick"
+                android:id="@+id/percent"
                 android:text="%"/>
 
             <Button
@@ -100,6 +101,7 @@
                 android:backgroundTint="@color/orange"
                 android:textColor="@color/white"
                 android:onClick="divisionOnClick"
+                android:id="@+id/division"
                 android:text="/"/>
 
         </LinearLayout>
@@ -155,6 +157,7 @@
                 android:backgroundTint="@color/orange"
                 android:textColor="@color/white"
                 android:onClick="timesOnClick"
+                android:id="@+id/times"
                 android:text="x"/>
 
         </LinearLayout>
@@ -212,6 +215,7 @@
                 android:backgroundTint="@color/orange"
                 android:textColor="@color/white"
                 android:onClick="minusOnClick"
+                android:id="@+id/minus"
                 android:paddingTop="0dp"
                 android:text="-"/>
 
@@ -232,6 +236,7 @@
                 android:backgroundTint="@color/tintGrey"
                 android:textColor="@color/white"
                 android:onClick="numberButtonHandler"
+                android:id="@+id/button1"
                 android:text="1"/>
 
             <Button
@@ -243,6 +248,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
                 android:textColor="@color/white"
+                android:id="@+id/button2"
                 android:text="2"
                 android:onClick="numberButtonHandler"/>
 
@@ -287,6 +293,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
                 android:textColor="@color/white"
+                android:id="@+id/button0"
                 android:text="0"
                 android:onClick="numberButtonHandler"/>
 
@@ -299,6 +306,7 @@
                 android:textSize="@dimen/calcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
                 android:textColor="@color/white"
+                android:id="@+id/decimal"
                 android:text=","
                 android:onClick="decimalOnClick"/>
 
