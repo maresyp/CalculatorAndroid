@@ -21,7 +21,7 @@ public class SimpleCalculator extends AppCompatActivity {
     protected Double CalculationResult;
     protected Double firstOperand;
     protected Double secondOperand;
-    protected boolean equalsClicked = false;
+    protected boolean allowNewInput = false;
     protected Function<Double, Double> currentOperation = Math::sin;
     protected final int MAX_LENGTH = 12;
 
@@ -82,9 +82,9 @@ public class SimpleCalculator extends AppCompatActivity {
             }
             resultTextView.setText(clicked_number);
         } else {
-            if (this.equalsClicked) {
+            if (this.allowNewInput) {
                 resultTextView.setText(clicked_number);
-                equalsClicked = false;
+                this.allowNewInput = false;
                 return;
             }
             resultTextView.setText(String.format(Locale.getDefault(), "%s", current_on_display + clicked_number));
@@ -125,6 +125,7 @@ public class SimpleCalculator extends AppCompatActivity {
         this.secondOperand = 0.0D;
         resultTextView.setText("0");
         CalculationResult = 0.0D;
+        allowNewInput = false;
     }
 
     public void signOnClick(View view) {
@@ -163,7 +164,7 @@ public class SimpleCalculator extends AppCompatActivity {
             resultTextView.setText("0");
         }
     }
-    
+
     public void divisionOnClick(View view) {
         beforeOperationClick(view);
         this.currentOperation = (x) -> {
@@ -192,22 +193,18 @@ public class SimpleCalculator extends AppCompatActivity {
     }
 
     public void equalsOnClick(View view) {
-        if ((lastOperationClicked != (Button) view) && (lastOperationClicked != (Button) findViewById(R.id.sign))) {
+        if (view != null) {
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
         }
-
-        this.lastOperationClicked = (Button) view;
-        this.equalsClicked = true;
+        this.lastOperationClicked = (Button) findViewById(R.id.equals);
 
         this.CalculationResult = this.currentOperation.apply(this.firstOperand);
-        this.firstOperand = this.CalculationResult;
-
         updateResultTextView();
     }
 
     public boolean checkImplicitEquals(Button button) {
         if (this.lastOperationClicked == button) {
-            this.firstOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
+            this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
             this.equalsOnClick(null);
             return true;
         }
@@ -216,6 +213,9 @@ public class SimpleCalculator extends AppCompatActivity {
 
     public void beforeOperationClick(View view) {
         boolean implicitEqualsUsed = this.checkImplicitEquals((Button) view);
+        if (implicitEqualsUsed) {
+            this.allowNewInput = true;
+        }
         this.updateFirstOperand(!implicitEqualsUsed);
         this.lastOperationClicked = (Button) view;
     }
