@@ -386,18 +386,53 @@ public class SimpleCalculatorTest {
     }
 
     @Test
-    public void testSignWithOngoingCalculation() {
+    public void testSignOnClickWithDecimal() {
         // Click the number 5 button
         Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
+
+        // Click the decimal button
+        Espresso.onView(ViewMatchers.withId(R.id.decimal)).perform(ViewActions.click());
+
+        // Click the sign button
+        Espresso.onView(ViewMatchers.withId(R.id.sign)).perform(ViewActions.click());
+
+        // Check that the result text view displays "-5,"
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("-5,")));
+    }
+
+    @Test
+    public void testSignOnClickWithDecimalTwice() {
+        // Click the number 5 button
+        Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
+
+        // Click the decimal button
+        Espresso.onView(ViewMatchers.withId(R.id.decimal)).perform(ViewActions.click());
+
+        // Click the sign button
+        Espresso.onView(ViewMatchers.withId(R.id.sign)).perform(ViewActions.click());
+
+        // Click the sign button
+        Espresso.onView(ViewMatchers.withId(R.id.sign)).perform(ViewActions.click());
+
+        // Check that the result text view displays "5,"
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("5,")));
+    }
+
+    @Test
+    public void testSignFirstOperand() {
+        // Click the number 5 button
+        Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
+
+        // Click the sign button
+        Espresso.onView(ViewMatchers.withId(R.id.sign)).perform(ViewActions.click());
 
         // Click the plus button
         Espresso.onView(ViewMatchers.withId(R.id.plus)).perform(ViewActions.click());
 
         // Click the number 5 button
         Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
-
-        // Click the sign button
-        Espresso.onView(ViewMatchers.withId(R.id.sign)).perform(ViewActions.click());
 
         // Click the equals button
         Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
