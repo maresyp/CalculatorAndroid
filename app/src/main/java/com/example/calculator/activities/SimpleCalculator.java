@@ -17,10 +17,11 @@ import java.util.function.Function;
 
 public class SimpleCalculator extends AppCompatActivity {
     protected TextView resultTextView;
-    protected Button lastButtonClicked;
+    protected Button lastOperationClicked;
     protected Double CalculationResult;
     protected Double firstOperand;
     protected Double secondOperand;
+    protected boolean equalsClicked = false;
     protected Function<Double, Double> currentOperation = Math::sin;
     protected final int MAX_LENGTH = 12;
 
@@ -30,6 +31,8 @@ public class SimpleCalculator extends AppCompatActivity {
         setContentView(R.layout.activity_simple_calculator);
 
         CalculationResult = 0.0D;
+        firstOperand = 0.0D;
+        secondOperand = 0.0D;
 
         resultTextView = findViewById(R.id.resultTextView);
 
@@ -59,7 +62,6 @@ public class SimpleCalculator extends AppCompatActivity {
         String clicked_number = ((TextView) view).getText().toString();
         String current_on_display = resultTextView.getText().toString();
 
-        this.lastButtonClicked = (Button) view;
         try {
             if (current_on_display.contains(",")) {
                 if (current_on_display.length() >= this.MAX_LENGTH + 1) {
@@ -74,13 +76,17 @@ public class SimpleCalculator extends AppCompatActivity {
             return;
         }
 
-
         if (current_on_display.equals("0") || current_on_display.equals("-0")) {
             if (clicked_number.equals("0")) {
                 return;
             }
             resultTextView.setText(clicked_number);
         } else {
+            if (this.equalsClicked) {
+                resultTextView.setText(clicked_number);
+                equalsClicked = false;
+                return;
+            }
             resultTextView.setText(String.format(Locale.getDefault(), "%s", current_on_display + clicked_number));
         }
 
@@ -92,7 +98,7 @@ public class SimpleCalculator extends AppCompatActivity {
     public void decimalOnClick(View view) {
         String current_on_display = resultTextView.getText().toString();
 
-        this.lastButtonClicked = (Button) view;
+        this.lastOperationClicked = (Button) view;
         if (current_on_display.contains(",")) {
             Toast toast = Toast.makeText(getApplicationContext(), "Number already has decimal separator", Toast.LENGTH_SHORT);
             toast.show();
@@ -109,7 +115,7 @@ public class SimpleCalculator extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     public void onAllClearClick(View view) {
         String state = ((Button) findViewById(R.id.allClear)).getText().toString();
-        this.lastButtonClicked = (Button) view;
+        this.lastOperationClicked = (Button) view;
 
         if (state.equals("AC")) {
             this.firstOperand = 0.0D;
@@ -124,7 +130,7 @@ public class SimpleCalculator extends AppCompatActivity {
     public void signOnClick(View view) {
         String current_on_display = resultTextView.getText().toString();
 
-        this.lastButtonClicked = (Button) view;
+        this.lastOperationClicked = (Button) view;
         if (current_on_display.equals("0")) {
             return;
         }
@@ -138,16 +144,15 @@ public class SimpleCalculator extends AppCompatActivity {
     }
 
     public void percentOnClick(View view) {
-        String current_on_display = resultTextView.getText().toString();
+        String current_on_display = resultTextView.getText().toString().replace(",", ".");
+        this.lastOperationClicked = (Button) view;
 
-        this.lastButtonClicked = (Button) view;
         if (current_on_display.equals("0") || current_on_display.equals("-0")) {
             return;
         }
 
-        current_on_display = current_on_display.replace(",", ".");
         double current_on_display_double = Double.parseDouble(current_on_display);
-        this.CalculationResult = current_on_display_double / 100.0D;
+        this.CalculationResult = (this.firstOperand * current_on_display_double) / 100.0D;
 
         this.updateResultTextView();
     }
@@ -157,8 +162,12 @@ public class SimpleCalculator extends AppCompatActivity {
         resultTextView.setText("0");
     }
     public void divisionOnClick(View view) {
+        if (lastOperationClicked == (Button) view) {
+            return;
+        }
+
         this.updateOpperand();
-        this.lastButtonClicked = (Button) view;
+        this.lastOperationClicked = (Button) view;
         this.currentOperation = (x) -> {
             if (secondOperand == 0.0D) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Division by zero", Toast.LENGTH_SHORT);
@@ -170,32 +179,46 @@ public class SimpleCalculator extends AppCompatActivity {
     }
 
     public void timesOnClick(View view) {
+        if (lastOperationClicked == (Button) view) {
+            return;
+        }
+
         this.updateOpperand();
-        this.lastButtonClicked = (Button) view;
+        this.lastOperationClicked = (Button) view;
         this.currentOperation = (x) -> x * secondOperand;
     }
 
     public void minusOnClick(View view) {
+        if (lastOperationClicked == (Button) view) {
+            return;
+        }
+
         this.updateOpperand();
-        this.lastButtonClicked = (Button) view;
+        this.lastOperationClicked = (Button) view;
         this.currentOperation = (x) -> x - secondOperand;
     }
 
     public void plusOnClick(View view) {
+        if (lastOperationClicked == (Button) view) {
+            return;
+        }
+
         this.updateOpperand();
-        this.lastButtonClicked = (Button) view;
+        this.lastOperationClicked = (Button) view;
         this.currentOperation = (x) -> x + secondOperand;
     }
 
     public void equalsOnClick(View view) {
-        if ((lastButtonClicked != (Button) view) && (lastButtonClicked != (Button) findViewById(R.id.sign))) {
+        if ((lastOperationClicked != (Button) view) && (lastOperationClicked != (Button) findViewById(R.id.sign))) {
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
         }
 
-        this.lastButtonClicked = (Button) view;
-        this.CalculationResult = this.currentOperation.apply(this.firstOperand);
+        this.lastOperationClicked = (Button) view;
+        this.equalsClicked = true;
 
+        this.CalculationResult = this.currentOperation.apply(this.firstOperand);
         this.firstOperand = this.CalculationResult;
+
         updateResultTextView();
     }
 
