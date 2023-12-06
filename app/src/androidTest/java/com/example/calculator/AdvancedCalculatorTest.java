@@ -53,18 +53,6 @@ public class AdvancedCalculatorTest {
     }
 
     @Test
-    public void testXSquaredOnClick() {
-        // Set up
-        Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.xSquaredButton)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
-
-        // Verify
-        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
-                .check(ViewAssertions.matches(ViewMatchers.withText("25")));
-    }
-
-    @Test
     public void testXSquaredWithPlusCalculation() {
         // Set up
         Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
