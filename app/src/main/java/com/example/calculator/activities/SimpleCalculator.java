@@ -157,17 +157,15 @@ public class SimpleCalculator extends AppCompatActivity {
         this.updateResultTextView();
     }
 
-    public void updateOpperand() {
+    public void updateFirstOperand(boolean clearResult) {
         this.firstOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
-        resultTextView.setText("0");
-    }
-    public void divisionOnClick(View view) {
-        if (lastOperationClicked == (Button) view) {
-            return;
+        if (clearResult) {
+            resultTextView.setText("0");
         }
-
-        this.updateOpperand();
-        this.lastOperationClicked = (Button) view;
+    }
+    
+    public void divisionOnClick(View view) {
+        beforeOperationClick(view);
         this.currentOperation = (x) -> {
             if (secondOperand == 0.0D) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Division by zero", Toast.LENGTH_SHORT);
@@ -179,32 +177,17 @@ public class SimpleCalculator extends AppCompatActivity {
     }
 
     public void timesOnClick(View view) {
-        if (lastOperationClicked == (Button) view) {
-            return;
-        }
-
-        this.updateOpperand();
-        this.lastOperationClicked = (Button) view;
+        beforeOperationClick(view);
         this.currentOperation = (x) -> x * secondOperand;
     }
 
     public void minusOnClick(View view) {
-        if (lastOperationClicked == (Button) view) {
-            return;
-        }
-
-        this.updateOpperand();
-        this.lastOperationClicked = (Button) view;
+        beforeOperationClick(view);
         this.currentOperation = (x) -> x - secondOperand;
     }
 
     public void plusOnClick(View view) {
-        if (lastOperationClicked == (Button) view) {
-            return;
-        }
-
-        this.updateOpperand();
-        this.lastOperationClicked = (Button) view;
+        beforeOperationClick(view);
         this.currentOperation = (x) -> x + secondOperand;
     }
 
@@ -220,6 +203,21 @@ public class SimpleCalculator extends AppCompatActivity {
         this.firstOperand = this.CalculationResult;
 
         updateResultTextView();
+    }
+
+    public boolean checkImplicitEquals(Button button) {
+        if (this.lastOperationClicked == button) {
+            this.firstOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
+            this.equalsOnClick(null);
+            return true;
+        }
+        return false;
+    }
+
+    public void beforeOperationClick(View view) {
+        boolean implicitEqualsUsed = this.checkImplicitEquals((Button) view);
+        this.updateFirstOperand(!implicitEqualsUsed);
+        this.lastOperationClicked = (Button) view;
     }
 
 }

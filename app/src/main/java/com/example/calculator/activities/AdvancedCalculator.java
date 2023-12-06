@@ -30,11 +30,7 @@ public class AdvancedCalculator extends SimpleCalculator {
     }
 
     public void xToThePowerOfYOnClick(View view) {
-        if (lastOperationClicked == (Button) view) {
-            return;
-        }
-
-        this.updateOpperand();
+        this.updateFirstOperand(true);
         this.lastOperationClicked = (Button) view;
         this.currentOperation = (x) -> {
             if (this.secondOperand >= 99) {
