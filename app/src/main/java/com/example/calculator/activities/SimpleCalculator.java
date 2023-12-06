@@ -12,6 +12,7 @@ import com.example.calculator.R;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.function.Function;
 
@@ -23,6 +24,8 @@ public class SimpleCalculator extends AppCompatActivity {
     protected Double secondOperand;
     protected boolean allowNewInput = false;
     protected Function<Double, Double> currentOperation = Math::sin;
+    protected HashMap<String, Button> operationButtons;
+    protected HashMap<String, Button> nonOperationButtons;
     protected final int MAX_LENGTH = 12;
 
     @Override
@@ -35,6 +38,26 @@ public class SimpleCalculator extends AppCompatActivity {
         secondOperand = 0.0D;
 
         resultTextView = findViewById(R.id.resultTextView);
+
+        operationButtons = new HashMap<>();
+        operationButtons.put("plus", (Button) findViewById(R.id.plus));
+        operationButtons.put("minus", (Button) findViewById(R.id.minus));
+        operationButtons.put("times", (Button) findViewById(R.id.times));
+        operationButtons.put("division", (Button) findViewById(R.id.division));
+        operationButtons.put("equals", (Button) findViewById(R.id.equals));
+        operationButtons.put("percent", (Button) findViewById(R.id.percent));
+
+        nonOperationButtons = new HashMap<>();
+        nonOperationButtons.put("button0", (Button) findViewById(R.id.button0));
+        nonOperationButtons.put("button1", (Button) findViewById(R.id.button1));
+        nonOperationButtons.put("button2", (Button) findViewById(R.id.button2));
+        nonOperationButtons.put("button3", (Button) findViewById(R.id.button3));
+        nonOperationButtons.put("button4", (Button) findViewById(R.id.button4));
+        nonOperationButtons.put("button5", (Button) findViewById(R.id.button5));
+        nonOperationButtons.put("button6", (Button) findViewById(R.id.button6));
+        nonOperationButtons.put("button7", (Button) findViewById(R.id.button7));
+        nonOperationButtons.put("button8", (Button) findViewById(R.id.button8));
+        nonOperationButtons.put("button9", (Button) findViewById(R.id.button9));
 
     }
 
@@ -141,7 +164,7 @@ public class SimpleCalculator extends AppCompatActivity {
         } else {
             resultTextView.setText(String.format(Locale.getDefault(), "-%s", current_on_display));
         }
-        firstOperand *= -1;
+        secondOperand *= -1;
     }
 
     public void percentOnClick(View view) {
@@ -196,16 +219,17 @@ public class SimpleCalculator extends AppCompatActivity {
         if (view != null) {
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
         }
-        this.lastOperationClicked = (Button) findViewById(R.id.equals);
+        this.lastOperationClicked = operationButtons.get("equals");
 
         this.CalculationResult = this.currentOperation.apply(this.firstOperand);
         updateResultTextView();
     }
 
     public boolean checkImplicitEquals(Button button) {
-        if (this.lastOperationClicked == button) {
+        if (operationButtons.containsValue(this.lastOperationClicked)) {
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
             this.equalsOnClick(null);
+            this.lastOperationClicked = null;
             return true;
         }
         return false;
