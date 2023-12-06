@@ -71,6 +71,7 @@
                 android:layout_marginRight="3dp"
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="xSquaredOnClick"
+                android:id="@+id/xSquaredButton"
                 android:text="x^2"
                 android:textColor="@color/black"
                 android:textSize="@dimen/advCalcButtonTextSize" />
@@ -170,6 +171,7 @@
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="sinOnClick"
                 android:text="sin"
+                android:id="@+id/sinButton"
                 android:textColor="@color/black"
                 android:textSize="@dimen/advCalcButtonTextSize" />
 
@@ -182,6 +184,7 @@
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="cosOnClick"
                 android:text="cos"
+                android:id="@+id/cosButton"
                 android:textColor="@color/black"
                 android:textSize="@dimen/advCalcButtonTextSize" />
 
@@ -222,11 +225,12 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
-                android:text="7"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:onClick="numberButtonHandler"
+                android:id="@+id/button7"
+                android:text="7"/>
 
             <Button
                 android:layout_width="0dp"
@@ -234,11 +238,12 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
-                android:text="8"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:onClick="numberButtonHandler"
+                android:id="@+id/button8"
+                android:text="8"/>
 
             <Button
                 android:layout_width="0dp"
@@ -246,11 +251,12 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
-                android:text="9"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:onClick="numberButtonHandler"
+                android:id="@+id/button9"
+                android:text="9"/>
 
             <Button
                 android:layout_width="0dp"
@@ -258,11 +264,12 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
+                android:textSize="30sp"
                 android:backgroundTint="@color/orange"
+                android:textColor="@color/white"
                 android:onClick="timesOnClick"
-                android:text="x"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
+                android:id="@+id/times"
+                android:text="x"/>
 
         </LinearLayout>
 
@@ -278,48 +285,52 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
-                android:text="4"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:id="@+id/button4"
+                android:onClick="numberButtonHandler"
+                android:text="4"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/advCalcButtonTextSize"
+                android:backgroundTint="@color/tintGrey"
+                android:textColor="@color/white"
+                android:onClick="numberButtonHandler"
+                android:id="@+id/button5"
+                android:text="5"/>
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
-                android:text="5"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:onClick="numberButtonHandler"
+                android:id="@+id/button6"
+                android:text="6"/>
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
-                android:text="6"
-                android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:textSize="45sp"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
                 android:backgroundTint="@color/orange"
-                android:paddingTop="0dp"
+                android:textColor="@color/white"
                 android:onClick="minusOnClick"
-                android:text="-"
-                android:textColor="@color/white"
-                android:textSize="45sp" />
+                android:id="@+id/minus"
+                android:paddingTop="0dp"
+                android:text="-"/>
 
         </LinearLayout>
 
@@ -334,11 +345,12 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
-                android:text="1"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:onClick="numberButtonHandler"
+                android:id="@+id/button1"
+                android:text="1"/>
 
             <Button
                 android:layout_width="0dp"
@@ -346,11 +358,12 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
+                android:textColor="@color/white"
+                android:id="@+id/button2"
                 android:text="2"
-                android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:onClick="numberButtonHandler"/>
 
             <Button
                 android:layout_width="0dp"
@@ -358,11 +371,12 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
-                android:onClick="numberButtonHandler"
-                android:text="3"
                 android:textColor="@color/white"
-                android:textSize="@dimen/advCalcButtonTextSize" />
+                android:id="@+id/button3"
+                android:text="3"
+                android:onClick="numberButtonHandler"/>
 
             <Button
                 android:layout_width="0dp"
@@ -370,11 +384,12 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
+                android:textSize="35sp"
                 android:backgroundTint="@color/orange"
-                android:onClick="plusOnClick"
-                android:text="+"
                 android:textColor="@color/white"
-                android:textSize="35sp" />
+                android:text="+"
+                android:id="@+id/plus"
+                android:onClick="plusOnClick"/>
 
         </LinearLayout>
 
@@ -389,9 +404,10 @@
                 android:layout_weight="2"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
-                android:textSize="@dimen/calcButtonTextSize"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
                 android:textColor="@color/white"
+                android:id="@+id/button0"
                 android:text="0"
                 android:onClick="numberButtonHandler"/>
 
@@ -401,11 +417,13 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
-                android:textSize="@dimen/calcButtonTextSize"
+                android:textSize="@dimen/advCalcButtonTextSize"
                 android:backgroundTint="@color/tintGrey"
                 android:textColor="@color/white"
+                android:id="@+id/decimal"
                 android:text=","
                 android:onClick="decimalOnClick"/>
+
 
             <Button
                 android:layout_width="0dp"
@@ -421,7 +439,9 @@
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"
                 android:paddingLeft="0dp"
-                android:paddingRight="0dp"/>
+                android:paddingRight="0dp"
+                android:id="@+id/equals"/>
+
         </LinearLayout>
 
     </LinearLayout>
