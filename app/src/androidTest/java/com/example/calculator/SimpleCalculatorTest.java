@@ -646,4 +646,43 @@ public class SimpleCalculatorTest {
         Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
                 .check(ViewAssertions.matches(ViewMatchers.withText("10")));
     }
+
+    @Test
+    public void testEqualsAfterMultiplePlus() {
+        // Click the number 5 button
+        Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
+
+        // Click the plus button
+        Espresso.onView(ViewMatchers.withId(R.id.plus)).perform(ViewActions.click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
+
+        // Click the plus button
+        Espresso.onView(ViewMatchers.withId(R.id.plus)).perform(ViewActions.click());
+
+        // Check that the result text view displays "10"
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("10")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.plus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.plus)).perform(ViewActions.click());
+
+        // Check that the result text view displays "10"
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("10")));
+
+        // Click the equals button
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+
+        // Check that the result text view displays "20"
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("20")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.plus)).perform(ViewActions.click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("40")));
+    }
 }
