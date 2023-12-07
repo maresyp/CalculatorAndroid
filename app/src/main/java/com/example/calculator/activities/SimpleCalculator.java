@@ -226,19 +226,16 @@ public class SimpleCalculator extends AppCompatActivity {
     }
 
     public boolean checkImplicitEquals(Button button) {
-        if (operationButtons.containsValue(this.lastOperationClicked)) {
-            this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
-            this.equalsOnClick(null);
-            this.lastOperationClicked = null;
-            return true;
-        }
-        return false;
+        return operationButtons.containsValue(this.lastOperationClicked);
     }
 
     public void beforeOperationClick(View view) {
         boolean implicitEqualsUsed = this.checkImplicitEquals((Button) view);
         if (implicitEqualsUsed) {
+            this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
             this.allowNewInput = true;
+            this.equalsOnClick(null);
+            this.lastOperationClicked = null;
         }
         this.updateFirstOperand(!implicitEqualsUsed);
         this.lastOperationClicked = (Button) view;
