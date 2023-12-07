@@ -94,4 +94,132 @@ public class AdvancedCalculatorTest {
         Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
                 .check(ViewAssertions.matches(ViewMatchers.withText("390625")));
     }
+
+    @Test
+    public void testTanCalculation() {
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.tanButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("0")));
+    }
+
+    @Test
+    public void testTanCalculationWithMinus() {
+        Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.tanButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("-0")));
+    }
+
+    @Test
+    public void testLogCalculation() {
+        Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.logButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("1")));
+    }
+
+    @Test
+    public void testLogCalculationWithMinus() {
+        Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.logButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("1")));
+    }
+
+    @Test
+    public void testSqrtCalculation() {
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.sqrtButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("2")));
+    }
+
+    @Test
+    public void testSqrtCalculationWithMinus() {
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.sqrtButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("2")));
+    }
+
+    @Test
+    public void testXtoYCalculation() {
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.xToYButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button2)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("16")));
+    }
+
+    @Test
+    public void testXtoYCalculationWithMinus() {
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.xToYButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button2)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("16")));
+    }
+
+    @Test
+    public void testXtoYCalculationWithDoubleEquals() {
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.xToYButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button2)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("256")));
+    }
+
+    @Test
+    public void testXtoYCalculationWithDoubleEqualsAndMinus() {
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.xToYButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button2)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("256")));
+    }
+
+    @Test
+    public void testLnCalculation() {
+        Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.lnButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("0")));
+    }
+
+    @Test
+    public void testLnCalculationWithDecimal() {
+        Espresso.onView(ViewMatchers.withId(R.id.button2)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.decimal)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button7)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button8)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button3)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.lnButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("1,000006685")));
+    }
+
+
 }
