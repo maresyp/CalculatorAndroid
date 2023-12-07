@@ -38,13 +38,13 @@ public class AdvancedCalculator extends SimpleCalculator {
         double current = Double.parseDouble(current_on_display);
         CalculationResult = Math.pow(current, 2);
 
+        this.currentOperation = (x) -> Math.pow(this.secondOperand, 2);
         this.updateResultTextView();
     }
 
     public void xToThePowerOfYOnClick(View view) {
-        this.updateFirstOperand(true);
+        this.beforeOperationClick(view);
 
-        this.lastOperationClicked = (Button) view;
         this.currentOperation = (x) -> {
             if (this.secondOperand >= 99) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Exponent is too big to calculate", Toast.LENGTH_SHORT);
