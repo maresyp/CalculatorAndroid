@@ -15,10 +15,22 @@ public class AdvancedCalculator extends SimpleCalculator {
         setContentView(R.layout.activity_advanced_calculator);
 
         resultTextView = findViewById(R.id.resultTextView);
+
+        operationButtons.put("xSquared", (Button) findViewById(R.id.xSquaredButton));
+        operationButtons.put("xToThePowerOfY", (Button) findViewById(R.id.xToYButton));
+        operationButtons.put("ln", (Button) findViewById(R.id.lnButton));
+        operationButtons.put("log", (Button) findViewById(R.id.logButton));
+        operationButtons.put("sqrt", (Button) findViewById(R.id.sqrtButton));
+        operationButtons.put("sin", (Button) findViewById(R.id.sinButton));
+        operationButtons.put("cos", (Button) findViewById(R.id.cosButton));
+        operationButtons.put("tan", (Button) findViewById(R.id.tanButton));
+
     }
 
     public void xSquaredOnClick(View view) {
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
+
+        lastOperationClicked = (Button) view;
         if (current_on_display.isEmpty()) {
             return;
         }
@@ -31,6 +43,7 @@ public class AdvancedCalculator extends SimpleCalculator {
 
     public void xToThePowerOfYOnClick(View view) {
         this.updateFirstOperand(true);
+
         this.lastOperationClicked = (Button) view;
         this.currentOperation = (x) -> {
             if (this.secondOperand >= 99) {
@@ -44,6 +57,8 @@ public class AdvancedCalculator extends SimpleCalculator {
 
     public void lnOnClick(View view) {
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
+        this.lastOperationClicked = (Button) view;
+
         if (current_on_display.isEmpty()) {
             return;
         }
@@ -62,6 +77,8 @@ public class AdvancedCalculator extends SimpleCalculator {
 
     public void logOnClick(View view) {
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
+        this.lastOperationClicked = (Button) view;
+
         if (current_on_display.isEmpty()) {
             return;
         }
@@ -80,6 +97,8 @@ public class AdvancedCalculator extends SimpleCalculator {
 
     public void sqrtOnClick(View view) {
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
+        this.lastOperationClicked = (Button) view;
+
         if (current_on_display.isEmpty()) {
             return;
         }
@@ -98,6 +117,8 @@ public class AdvancedCalculator extends SimpleCalculator {
 
     public void sinOnClick(View view) {
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
+        this.lastOperationClicked = (Button) view;
+
         if (current_on_display.isEmpty()) {
             return;
         }
@@ -110,6 +131,8 @@ public class AdvancedCalculator extends SimpleCalculator {
 
     public void cosOnClick(View view) {
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
+        this.lastOperationClicked = (Button) view;
+
         if (current_on_display.isEmpty()) {
             return;
         }
@@ -122,6 +145,8 @@ public class AdvancedCalculator extends SimpleCalculator {
 
     public void tanOnClick(View view) {
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
+        this.lastOperationClicked = (Button) view;
+
         if (current_on_display.isEmpty()) {
             return;
         }
