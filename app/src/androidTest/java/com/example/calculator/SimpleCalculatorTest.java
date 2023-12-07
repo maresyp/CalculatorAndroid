@@ -516,6 +516,63 @@ public class SimpleCalculatorTest {
     }
 
     @Test
+    public void testPercentWithDoubleMinusOperation() {
+        // Click the number 1 and 0 button
+        Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+
+        // Click the minus button
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+
+        // Click the number 1 and 0 button
+        Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+
+        // Click the percent button
+        Espresso.onView(ViewMatchers.withId(R.id.percent)).perform(ViewActions.click());
+
+        // Check that the result text view displays "1"
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("1")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("9")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("8")));
+    }
+
+    @Test
+    public void testPercentWithDoublePercentOperation() {
+        // Click the number 1 and 0 button
+        Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
+
+        // Click the percent button
+        Espresso.onView(ViewMatchers.withId(R.id.percent)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.percent)).perform(ViewActions.click());
+
+
+        // Check that the result text view displays "0"
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("0,1")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("9,9")));
+    }
+
+    @Test
     public void testPlusOnClick() {
         // Click the number 5 button
         Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
