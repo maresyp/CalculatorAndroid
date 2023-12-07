@@ -85,6 +85,7 @@
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="xToThePowerOfYOnClick"
                 android:text="x^y"
+                android:id="@+id/xToYButton"
                 android:textColor="@color/black"
                 android:textSize="@dimen/advCalcButtonTextSize" />
 
@@ -116,6 +117,7 @@
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="lnOnClick"
                 android:text="ln"
+                android:id="@+id/lnButton"
                 android:textColor="@color/black"
                 android:textSize="@dimen/advCalcButtonTextSize" />
 
@@ -128,6 +130,7 @@
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="logOnClick"
                 android:text="log"
+                android:id="@+id/logButton"
                 android:textColor="@color/black"
                 android:textSize="@dimen/advCalcButtonTextSize" />
 
@@ -140,6 +143,7 @@
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="sqrtOnClick"
                 android:text="sqrt"
+                android:id="@+id/sqrtButton"
                 android:textColor="@color/black"
                 android:textSize="@dimen/advCalcButtonTextSize" />
 
@@ -197,6 +201,7 @@
                 android:backgroundTint="@color/lightGrey"
                 android:onClick="tanOnClick"
                 android:text="tan"
+                android:id="@+id/tanButton"
                 android:textColor="@color/black"
                 android:textSize="@dimen/advCalcButtonTextSize" />
 
