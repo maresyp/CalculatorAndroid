@@ -241,6 +241,9 @@ public class SimpleCalculator extends AppCompatActivity {
     }
 
     public void beforeOperationClick(View view) {
+        if(allowNewInput) {
+            return;
+        }
         boolean implicitEqualsUsed = this.checkImplicitEquals((Button) view);
         if (implicitEqualsUsed) {
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));

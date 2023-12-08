@@ -341,6 +341,18 @@ public class SimpleCalculatorTest {
     }
 
     @Test
+    public void testMultipleDecimalOnClick() {
+        // Click the decimal button
+        Espresso.onView(ViewMatchers.withId(R.id.decimal)).perform(ViewActions.click());
+
+        Espresso.onView(ViewMatchers.withId(R.id.decimal)).perform(ViewActions.click());
+
+        // Check that the result text view displays "0,"
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("0,")));
+    }
+
+    @Test
     public void testOnAllClearClick() {
         // Click the number 5 button
         Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());

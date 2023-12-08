@@ -30,16 +30,11 @@ public class AdvancedCalculator extends SimpleCalculator {
 
     public void xSquaredOnClick(View view) {
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
-
         lastOperationClicked = (Button) view;
-        if (current_on_display.isEmpty()) {
-            return;
-        }
 
         double current = Double.parseDouble(current_on_display);
         CalculationResult = Math.pow(current, 2);
 
-        this.currentOperation = (x) -> Math.pow(this.secondOperand, 2);
         this.updateResultTextView();
     }
 

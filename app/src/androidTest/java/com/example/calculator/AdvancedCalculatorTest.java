@@ -74,11 +74,17 @@ public class AdvancedCalculatorTest {
         Espresso.onView(ViewMatchers.withId(R.id.button5)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.plus)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.xSquaredButton)).perform(ViewActions.click());
+
+        // Verify
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("100")));
+
         Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
 
         // Verify
         Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
-                .check(ViewAssertions.matches(ViewMatchers.withText("35")));
+                .check(ViewAssertions.matches(ViewMatchers.withText("110")));
+
     }
 
     @Test
@@ -171,6 +177,10 @@ public class AdvancedCalculatorTest {
                 .check(ViewAssertions.matches(ViewMatchers.withText("2")));
 
         Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("2")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
                 .check(ViewAssertions.matches(ViewMatchers.withText("0")));
     }
