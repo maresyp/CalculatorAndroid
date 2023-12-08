@@ -98,6 +98,7 @@
                 android:backgroundTint="@color/orange"
                 android:onClick="signOnClick"
                 android:text="+/-"
+                android:id="@+id/sign"
                 android:textColor="@color/white"
                 android:textSize="@dimen/advCalcButtonTextSize" />
 
