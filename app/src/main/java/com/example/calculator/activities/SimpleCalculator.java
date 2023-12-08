@@ -26,6 +26,7 @@ public class SimpleCalculator extends AppCompatActivity {
     protected boolean allowNewInput = false;
     protected Function<Double, Double> currentOperation = Math::sin;
     protected HashMap<String, Button> operationButtons;
+    protected HashMap<String, Button> singleArgumentOperationButtons;
     protected HashMap<String, Button> nonOperationButtons;
     protected final int MAX_LENGTH = 12;
 
@@ -65,10 +66,11 @@ public class SimpleCalculator extends AppCompatActivity {
         nonOperationButtons.put("button8", (Button) findViewById(R.id.button8));
         nonOperationButtons.put("button9", (Button) findViewById(R.id.button9));
 
+        singleArgumentOperationButtons = new HashMap<>();
+
         // assert both hashmaps are null free
         assert operationButtons.values().stream().noneMatch(Objects::isNull);
         assert nonOperationButtons.values().stream().noneMatch(Objects::isNull);
-
     }
 
     public void updateResultTextView() {
@@ -240,7 +242,12 @@ public class SimpleCalculator extends AppCompatActivity {
         // check if new input is allowed ( e.g. 10 + 10 +[this causes implicit equals] and next input should be allowed )
         // based on that we can decide how to proceed
         if(allowNewInput) {
+            return;
+        }
 
+        // Check for single operation buttons like sqrt or ln
+        if (singleArgumentOperationButtons != null
+                && singleArgumentOperationButtons.containsValue((Button) view)) {
             return;
         }
 

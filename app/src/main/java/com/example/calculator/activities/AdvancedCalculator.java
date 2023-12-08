@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import com.example.calculator.R;
 
+import java.util.function.Function;
+
 public class AdvancedCalculator extends SimpleCalculator {
 
     @Override
@@ -18,24 +20,37 @@ public class AdvancedCalculator extends SimpleCalculator {
         super.onCreate(savedInstanceState);
 
         operationButtons.put("xToThePowerOfY", (Button) findViewById(R.id.xToYButton));
-        operationButtons.put("xSquared", (Button) findViewById(R.id.xSquaredButton));
-        operationButtons.put("ln", (Button) findViewById(R.id.lnButton));
-        operationButtons.put("log", (Button) findViewById(R.id.logButton));
-        operationButtons.put("sqrt", (Button) findViewById(R.id.sqrtButton));
-        operationButtons.put("sin", (Button) findViewById(R.id.sinButton));
-        operationButtons.put("cos", (Button) findViewById(R.id.cosButton));
-        operationButtons.put("tan", (Button) findViewById(R.id.tanButton));
+        singleArgumentOperationButtons.put("xSquared", (Button) findViewById(R.id.xSquaredButton));
+        singleArgumentOperationButtons.put("ln", (Button) findViewById(R.id.lnButton));
+        singleArgumentOperationButtons.put("log", (Button) findViewById(R.id.logButton));
+        singleArgumentOperationButtons.put("sqrt", (Button) findViewById(R.id.sqrtButton));
+        singleArgumentOperationButtons.put("sin", (Button) findViewById(R.id.sinButton));
+        singleArgumentOperationButtons.put("cos", (Button) findViewById(R.id.cosButton));
+        singleArgumentOperationButtons.put("tan", (Button) findViewById(R.id.tanButton));
 
     }
 
     public void xSquaredOnClick(View view) {
+        beforeOperationClick(view);
+
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
-        lastOperationClicked = (Button) view;
-
         double current = Double.parseDouble(current_on_display);
-        CalculationResult = Math.pow(current, 2);
 
+        CalculationResult = Math.pow(current, 2);
         this.updateResultTextView();
+
+        // in case when any other operation was clicked like + -
+        if (operationButtons.containsValue(this.lastOperationClicked)) {
+//            this.firstOperand = CalculationResult;
+//            double squared = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
+//            this.currentOperation.andThen((x) -> {
+//                this.secondOperand = squared;
+//                return x;
+//            });
+        } else {
+            this.currentOperation = (x) -> Math.pow(Double.parseDouble(resultTextView.getText().toString().replace(",", ".")), 2);
+        }
+
     }
 
     public void xToThePowerOfYOnClick(View view) {
