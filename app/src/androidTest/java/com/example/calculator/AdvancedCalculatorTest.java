@@ -150,10 +150,47 @@ public class AdvancedCalculatorTest {
     public void testSqrtCalculationWithMinus() {
         Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.sqrtButton)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
                 .check(ViewAssertions.matches(ViewMatchers.withText("2")));
+    }
+
+    @Test
+    public void testSqrtCalculationWithDoubleMinus() {
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.sqrtButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("2")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("2")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("0")));
+    }
+
+    @Test
+    public void testSqrtCalculationWithDoubleEquals() {
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.sqrtButton)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("2")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("2")));
+
+        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
+        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
+                .check(ViewAssertions.matches(ViewMatchers.withText("0")));
     }
 
     @Test
