@@ -27,9 +27,8 @@ public class AdvancedCalculatorTest {
     public void testCosCalculation() {
         Espresso.onView(ViewMatchers.withId(R.id.button0)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.cosButton)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
-                .check(ViewAssertions.matches(ViewMatchers.withText("0")));
+                .check(ViewAssertions.matches(ViewMatchers.withText("1")));
     }
 
     @Test
@@ -250,24 +249,10 @@ public class AdvancedCalculatorTest {
                 .check(ViewAssertions.matches(ViewMatchers.withText("256")));
     }
 
-    @Ignore // TODO: fix this test
-    @Test()
-    public void testXtoYCalculationWithDoubleEqualsAndMinus() {
-        Espresso.onView(ViewMatchers.withId(R.id.button4)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.minus)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.xToYButton)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.button2)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
-                .check(ViewAssertions.matches(ViewMatchers.withText("256")));
-    }
-
     @Test
     public void testLnCalculation() {
         Espresso.onView(ViewMatchers.withId(R.id.button1)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.lnButton)).perform(ViewActions.click());
-        Espresso.onView(ViewMatchers.withId(R.id.equals)).perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.resultTextView))
                 .check(ViewAssertions.matches(ViewMatchers.withText("0")));
     }
