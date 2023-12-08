@@ -39,16 +39,16 @@ public class AdvancedCalculator extends SimpleCalculator {
         CalculationResult = Math.pow(current, 2);
         this.updateResultTextView();
 
-        // in case when any other operation was clicked like + -
-        if (operationButtons.containsValue(this.lastOperationClicked)) {
-//            this.firstOperand = CalculationResult;
+        // in case when any other operation was not clicked ( like + - )
+        if (!operationButtons.containsValue(this.lastOperationClicked)) {
+            this.currentOperation = (x) -> Math.pow(Double.parseDouble(resultTextView.getText().toString().replace(",", ".")), 2);
+        } else {
+            //            this.firstOperand = CalculationResult;
 //            double squared = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
 //            this.currentOperation.andThen((x) -> {
 //                this.secondOperand = squared;
 //                return x;
 //            });
-        } else {
-            this.currentOperation = (x) -> Math.pow(Double.parseDouble(resultTextView.getText().toString().replace(",", ".")), 2);
         }
 
     }
@@ -67,12 +67,8 @@ public class AdvancedCalculator extends SimpleCalculator {
     }
 
     public void lnOnClick(View view) {
+        beforeOperationClick(view);
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
-        this.lastOperationClicked = (Button) view;
-
-        if (current_on_display.isEmpty()) {
-            return;
-        }
 
         double current = Double.parseDouble(current_on_display);
         if (current <= 0) {
@@ -82,17 +78,16 @@ public class AdvancedCalculator extends SimpleCalculator {
         }
 
         CalculationResult = Math.log(current);
-
         this.updateResultTextView();
+
+        if (!operationButtons.containsValue(this.lastOperationClicked)) {
+            this.currentOperation = (x) -> Math.log(Double.parseDouble(resultTextView.getText().toString().replace(",", ".")));
+        }
     }
 
     public void logOnClick(View view) {
+        beforeOperationClick(view);
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
-        this.lastOperationClicked = (Button) view;
-
-        if (current_on_display.isEmpty()) {
-            return;
-        }
 
         double current = Double.parseDouble(current_on_display);
         if (current <= 0) {
@@ -102,17 +97,16 @@ public class AdvancedCalculator extends SimpleCalculator {
         }
 
         CalculationResult = Math.log10(current);
-
         this.updateResultTextView();
+
+        if (!operationButtons.containsValue(this.lastOperationClicked)) {
+            this.currentOperation = (x) -> Math.log10(Double.parseDouble(resultTextView.getText().toString().replace(",", ".")));
+        }
     }
 
     public void sqrtOnClick(View view) {
+        beforeOperationClick(view);
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
-        this.lastOperationClicked = (Button) view;
-
-        if (current_on_display.isEmpty()) {
-            return;
-        }
 
         double current = Double.parseDouble(current_on_display);
         if (current < 0) {
@@ -122,49 +116,49 @@ public class AdvancedCalculator extends SimpleCalculator {
         }
 
         CalculationResult = Math.sqrt(current);
-
         this.updateResultTextView();
+
+        if (!operationButtons.containsValue(this.lastOperationClicked)) {
+            this.currentOperation = (x) -> Math.sqrt(Double.parseDouble(resultTextView.getText().toString().replace(",", ".")));
+        }
     }
 
     public void sinOnClick(View view) {
+        beforeOperationClick(view);
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
-        this.lastOperationClicked = (Button) view;
-
-        if (current_on_display.isEmpty()) {
-            return;
-        }
 
         double current = Double.parseDouble(current_on_display);
         CalculationResult = Math.sin(current);
-
         this.updateResultTextView();
+
+        if (!operationButtons.containsValue(this.lastOperationClicked)) {
+            this.currentOperation = (x) -> Math.sin(Double.parseDouble(resultTextView.getText().toString().replace(",", ".")));
+        }
     }
 
     public void cosOnClick(View view) {
+        beforeOperationClick(view);
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
-        this.lastOperationClicked = (Button) view;
-
-        if (current_on_display.isEmpty()) {
-            return;
-        }
 
         double current = Double.parseDouble(current_on_display);
         CalculationResult = Math.cos(current);
-
         this.updateResultTextView();
+
+        if (!operationButtons.containsValue(this.lastOperationClicked)) {
+            this.currentOperation = (x) -> Math.cos(Double.parseDouble(resultTextView.getText().toString().replace(",", ".")));
+        }
     }
 
     public void tanOnClick(View view) {
+        beforeOperationClick(view);
         String current_on_display = resultTextView.getText().toString().replace(",", ".");
-        this.lastOperationClicked = (Button) view;
-
-        if (current_on_display.isEmpty()) {
-            return;
-        }
 
         double current = Double.parseDouble(current_on_display);
         CalculationResult = Math.tan(current);
-
         this.updateResultTextView();
+
+        if (!operationButtons.containsValue(this.lastOperationClicked)) {
+            this.currentOperation = (x) -> Math.tan(Double.parseDouble(resultTextView.getText().toString().replace(",", ".")));
+        }
     }
 }
