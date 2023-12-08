@@ -17,11 +17,8 @@ public class AdvancedCalculator extends SimpleCalculator {
         savedInstanceState.putBoolean("advancedCalculatorInstance", true);
         super.onCreate(savedInstanceState);
 
-//        setContentView(R.layout.activity_advanced_calculator);
-//        resultTextView = findViewById(R.id.resultTextView);
-
-        operationButtons.put("xSquared", (Button) findViewById(R.id.xSquaredButton));
         operationButtons.put("xToThePowerOfY", (Button) findViewById(R.id.xToYButton));
+        operationButtons.put("xSquared", (Button) findViewById(R.id.xSquaredButton));
         operationButtons.put("ln", (Button) findViewById(R.id.lnButton));
         operationButtons.put("log", (Button) findViewById(R.id.logButton));
         operationButtons.put("sqrt", (Button) findViewById(R.id.sqrtButton));

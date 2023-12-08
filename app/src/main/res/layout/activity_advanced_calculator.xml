@@ -156,6 +156,7 @@
                 android:backgroundTint="@color/orange"
                 android:onClick="percentOnClick"
                 android:text="%"
+                android:id="@+id/percent"
                 android:textColor="@color/white"
                 android:textSize="30sp" />
 
@@ -213,6 +214,7 @@
                 android:layout_marginRight="3dp"
                 android:backgroundTint="@color/orange"
                 android:onClick="divisionOnClick"
+                android:id="@+id/division"
                 android:text="/"
                 android:textColor="@color/white"
                 android:textSize="@dimen/advCalcButtonTextSize" />

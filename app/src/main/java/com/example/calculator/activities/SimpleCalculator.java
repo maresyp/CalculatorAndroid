@@ -14,6 +14,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.function.Function;
 
 public class SimpleCalculator extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class SimpleCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState.getBoolean("advancedCalculatorInstance")) {
+        if ((savedInstanceState != null) && (savedInstanceState.getBoolean("advancedCalculatorInstance"))) {
             setContentView(R.layout.activity_advanced_calculator);
         } else {
             setContentView(R.layout.activity_simple_calculator);
@@ -63,6 +64,10 @@ public class SimpleCalculator extends AppCompatActivity {
         nonOperationButtons.put("button7", (Button) findViewById(R.id.button7));
         nonOperationButtons.put("button8", (Button) findViewById(R.id.button8));
         nonOperationButtons.put("button9", (Button) findViewById(R.id.button9));
+
+        // assert both hashmaps are null free
+        assert operationButtons.values().stream().noneMatch(Objects::isNull);
+        assert nonOperationButtons.values().stream().noneMatch(Objects::isNull);
 
     }
 
@@ -228,7 +233,6 @@ public class SimpleCalculator extends AppCompatActivity {
         }
 
         this.CalculationResult = this.currentOperation.apply(this.firstOperand);
-
         updateResultTextView();
     }
 
