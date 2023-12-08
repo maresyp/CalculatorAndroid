@@ -191,13 +191,6 @@ public class SimpleCalculator extends AppCompatActivity {
         this.updateResultTextView();
     }
 
-    public void updateFirstOperand(boolean clearResult) {
-        this.firstOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
-        if (clearResult) {
-            resultTextView.setText("0");
-        }
-    }
-
     public void divisionOnClick(View view) {
         beforeOperationClick(view);
         this.currentOperation = (x) -> {
@@ -236,20 +229,35 @@ public class SimpleCalculator extends AppCompatActivity {
         updateResultTextView();
     }
 
-    public boolean checkImplicitEquals(Button button) {
-        return operationButtons.containsValue(this.lastOperationClicked);
+    public void updateFirstOperand(boolean clearResult) {
+        this.firstOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
+        if (clearResult) {
+            resultTextView.setText("0");
+        }
     }
 
     public void beforeOperationClick(View view) {
+        // check if new input is allowed ( e.g. 10 + 10 +[this causes implicit equals] and next input should be allowed )
+        // based on that we can decide how to proceed
         if(allowNewInput) {
+
             return;
         }
-        boolean implicitEqualsUsed = this.checkImplicitEquals((Button) view);
+
+        // check if implicit equals should be used (e.g. 1 + 2 + 3)
+        // check if last operation is contained inside operationButtons ( other buttons are excluded )
+        // it will be set to null if implicit equals was used
+        boolean implicitEqualsUsed = operationButtons.containsValue(this.lastOperationClicked);
+
         if (implicitEqualsUsed) {
+            // if implicit equals is used, then we need to update second operand
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
             this.allowNewInput = true;
             this.equalsOnClick(null);
         }
+
+        // update first operand
+        // clear screen depending on implicit equals
         this.updateFirstOperand(!implicitEqualsUsed);
         this.lastOperationClicked = (Button) view;
     }
