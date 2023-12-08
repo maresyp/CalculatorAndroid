@@ -31,7 +31,12 @@ public class SimpleCalculator extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple_calculator);
+
+        if (savedInstanceState.getBoolean("advancedCalculatorInstance")) {
+            setContentView(R.layout.activity_advanced_calculator);
+        } else {
+            setContentView(R.layout.activity_simple_calculator);
+        }
 
         CalculationResult = 0.0D;
         firstOperand = 0.0D;
@@ -218,10 +223,12 @@ public class SimpleCalculator extends AppCompatActivity {
     public void equalsOnClick(View view) {
         if (view != null) {
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
+        } else {
+            this.lastOperationClicked = operationButtons.get("equals");
         }
-        this.lastOperationClicked = operationButtons.get("equals");
 
         this.CalculationResult = this.currentOperation.apply(this.firstOperand);
+
         updateResultTextView();
     }
 
@@ -235,10 +242,8 @@ public class SimpleCalculator extends AppCompatActivity {
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
             this.allowNewInput = true;
             this.equalsOnClick(null);
-            this.lastOperationClicked = null;
         }
         this.updateFirstOperand(!implicitEqualsUsed);
         this.lastOperationClicked = (Button) view;
     }
-
 }

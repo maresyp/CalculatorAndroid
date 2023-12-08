@@ -11,10 +11,14 @@ public class AdvancedCalculator extends SimpleCalculator {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            savedInstanceState = new Bundle();
+        }
+        savedInstanceState.putBoolean("advancedCalculatorInstance", true);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_advanced_calculator);
 
-        resultTextView = findViewById(R.id.resultTextView);
+//        setContentView(R.layout.activity_advanced_calculator);
+//        resultTextView = findViewById(R.id.resultTextView);
 
         operationButtons.put("xSquared", (Button) findViewById(R.id.xSquaredButton));
         operationButtons.put("xToThePowerOfY", (Button) findViewById(R.id.xToYButton));
