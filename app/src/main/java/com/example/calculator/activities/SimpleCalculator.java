@@ -223,9 +223,8 @@ public class SimpleCalculator extends AppCompatActivity {
     public void equalsOnClick(View view) {
         if (view != null) {
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
-        } else {
-            this.lastOperationClicked = operationButtons.get("equals");
         }
+        this.lastOperationClicked = operationButtons.get("equals");
 
         this.CalculationResult = this.currentOperation.apply(this.firstOperand);
         updateResultTextView();
@@ -256,11 +255,13 @@ public class SimpleCalculator extends AppCompatActivity {
         // it will be set to null if implicit equals was used
         boolean implicitEqualsUsed = operationButtons.containsValue(this.lastOperationClicked);
 
-        if (implicitEqualsUsed) {
+        if (implicitEqualsUsed && this.lastOperationClicked != operationButtons.get("equals")) {
             // if implicit equals is used, then we need to update second operand
             this.secondOperand = Double.parseDouble(resultTextView.getText().toString().replace(",", "."));
             this.allowNewInput = true;
             this.equalsOnClick(null);
+        } else if (this.lastOperationClicked == operationButtons.get("equals")) {
+            allowNewInput = true;
         }
 
         // update first operand

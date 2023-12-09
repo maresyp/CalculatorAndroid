@@ -62,6 +62,11 @@ public class AdvancedCalculator extends SimpleCalculator {
                 toast.show();
                 return 0.0D;
             }
+            if (x == 0.0D && this.secondOperand == 0.0D) {
+                Toast toast = Toast.makeText(getApplicationContext(), "0 to the power of 0 is undefined", Toast.LENGTH_SHORT);
+                toast.show();
+                return 0.0D;
+            }
             return Math.pow(x, this.secondOperand);
         };
     }
